@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="TrebuchetMS">
+<head>
+<meta charset="ISO-8859-1">
+<title>API / MVC Demo</title>
+<script type="text/javascript">
+// Pure JS defined event listener
+window.onload = function() { JsOnLoad () };
+function JsOnLoad () {
+	CreateAndAppendElement ("events", "divJS", "div", "<br>EVENT: Document loaded - JS window.onload event listener");
+}
+
+// Register addEventListener with a callback function for the window
+window.addEventListener("load", eventCallbackOnLoad);
+function eventCallbackOnLoad() {
+	CreateAndAppendElement ("events", "divCallback", "div", "<br>EVENT: Document loaded - Event callback executed for addEventListener");
+}
+
+// JS attachted to HTML defined event listener
+function HtmlOnLoad () {
+	CreateAndAppendElement ("events", "divHtml", "div", "<br>EVENT: Document loaded - HTML body.onload event listener");
+}
+</script>
+</head>
+<!-- HTML event listener attached to body element -->
+<body onload="HtmlOnLoad();">
+<header role="banner">
+<h1 class="title">API / MVC Demo</h1>
+</header>
+<span>
+This web full stack demo uses a REST API generated with Springboot using an H2 embedded database, which exposes the API using 
+two popular Springboot approaches. The presentation portion of the demo is composed of an MVC Angular application that is 
+intended to demonstrate the principals of client based MVC, responsive design, and accessibility semantics. The demo UI was tested 
+with an LG3 smartphone, Kindle Fire tablet, and HP laptop using Chrome browser using both responsive and device simulation modes.
+<br><br>The demo also demonstrates various methods to register event notifications that the current page has loaded which can be
+used to bootstrap UI and app functionality. These techniques and or careful placement of scripts tags are used to ensure that the 
+user experience is not greatly impacted during app loading and rendering. Processing of these event registration and notification 
+techniques is demonstrated on this page.<br><br>The demo app can be accessed as individual page based applications or as a 
+SPA (Single Page Application) utilizing angularJS routing. The same angularJS controllers are shared for both approaches. 
+<br><br>
+</span>
+<header role="banner">
+<h2>Demo Access</h2>
+</header>
+<nav role="navigation">
+<a href="/demo.html">Demo</a> | 
+<a href="/demoAdd.html">Add Data</a> | 
+<a href="/demoList.html">List Data</a>
+</nav>
+<br>
+<header role="banner">
+<h2>Development Related Requirements</h2>
+</header>
+The primary requirements for the demo MVC app and REST API were set forth as follows
+<br>
+<br>
+<header role="banner">
+<h3>User Interface</h3>
+</header>
+<ul>
+<li>Build a form that takes the customer name, email address and some free form comments</li>
+<li>Must be a client side MVC based app (AngularJS or React)</li>
+<li>Think about page HTML quality semantics (simplicity, page size, field names etc)</li>
+<li>Apply some CSS to the HTML to allow for responsive design and common rendering across mobile devices and screen sizes</li>
+<li>Show modularization of JS and framework code</li>
+<li>When implementing form(s), ensure add some validation and field status</li>
+<li>Ensure the page is developed with attention for Accessibility in mind for the disabled</li>
+</ul>
+<header role="banner">
+<h3>REST API</h3>
+</header>
+<ul>
+<li>Build a back-end REST API on the that receives the comments and info from the MVC app and writes them to sys out (obviously not production ready but for demo purpose!)</li>
+<li>The API should validate comments, remove malicious characters as necessary before storing them</li>
+<li>The API should implement some pre-defined max lengths (200 chars for the comments and 100 for other fields)</li>
+<li>Email entry format semantics should be enforced for email entries so that they are validated before being stored</li>
+<li>The API should respond with appropriate http SUCCESS and ERROR codes and messages which should be able to be written to the browser console by the MVC app</li>
+<li>The end-points should be able to be accessed via clients other than your MVC app such as curl or any web browser</li>
+</ul>
+<br>
+<span id="events" >
+<b>************************</b>
+</span>
+</body>
+<!-- Bootstrap JS code without attaching event listeners -->
+<script type="text/javascript" src="/script/Common.js"></script>
+<script type="text/javascript">
+(function (){
+CreateAndAppendElement ("events", "divExecJS", "div", "<br>EVENT: Page loaded & DOM ready - Anonymous self executing JS without event listener");
+})();
+</script>
+</html>

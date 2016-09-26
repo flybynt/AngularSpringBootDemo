@@ -1,0 +1,62 @@
+input.ng-invalid {
+    background-color: lightblue;
+}
+
+.inputError {
+	font-size: 75%;
+	font-weight: normal;
+	font-style: italic;
+	white-space: nowrap;
+	color: red;
+}
+.inputStatus {
+	font-size: 75%;
+	font-weight: normal;
+	font-style: italic;
+	white-space: nowrap;
+	color: blue;
+}
+
+.title {
+	color: blue;
+	font-weight: bold;
+	font-size: x-large;
+}
+
+.centeredText {
+	text-align: center;
+	display: block;
+}
+
+.row {
+	font-size: inherit;
+	width: 100%;
+	padding: 3%;
+}
+
+table, th , td  {
+    padding: 5px;
+    text-align: left;
+	border: 1px solid green;
+	border-collapse: collapse;
+}
+
+th {
+	font-weight: bold;	
+}
+
+tr:nth-child(odd) {
+	background-color: lightgrey;
+}
+
+tr:nth-child(even) {
+	background-color: white;
+}
+
+tr:hover {
+	background-color: lightblue;
+}
+
+button[type=submit], [type=reset] {
+	font-weight: bold;
+}

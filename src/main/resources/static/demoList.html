@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="TrebuchetMS">
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular MVC Demo</title>
+</head>
+<body data-ng-app="demoListApp">
+<header role="banner">
+<span class="title">AngularJS MVC - List Data</span>
+</header>
+<div id="listcontainer">
+<div id="demoListRepoCtrl" data-ng-controller="demoListRepoCtrl">
+<p>This page of the AngularJS MVC demo lists all of the data in the H2 database utilizing two different JAVA Springboot REST 
+API approaches. The data can be filtered by entering values in the appropriate field for each data set below.</p>
+<p style="color:green;font-size:large;font-weight:bold;">Spring @RepositoryRestResource Approach</p>
+<p>
+<b>First Name </b><input type="text" data-ng-model="filterByFirst"><br>
+<b>Last Name </b><input type="text" data-ng-model="filterByLast">
+</p>
+<p style="color:green;font-size:large;font-weight:bold;">Filtered Data</p>
+<div style="overflow-x:auto;">
+<table>
+<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Comments</th><th>REST API Data URL</th></tr>
+<tr data-ng-click="editRow(data._links.self.href)" data-ng-repeat="data in listRepo | filter : {firstName: filterByFirst , lastName: filterByLast}">
+<td>{{ data.firstName }}</td><td>{{ data.lastName }}</td><td>{{ data.email }}</td><td>{{ data.comment }}</td><td><a href='{{ data._links.self.href }}' > {{ data._links.self.href }}</a></td>
+</tr>
+</table>
+</div>
+<div style="overflow-x:auto;">
+<p style="color:green;font-size:large;font-weight:bold;">Raw Data</p>
+<b>HTTP Status</b> {{listRepoStatusCode}}, {{listRepoStatus}} <b>REST API</b> {{listRepoUri}}<br>{{listRepo}}<br><br>
+</div>
+</div>
+<div id="demoListCtrl" data-ng-controller="demoListCtrl">
+<p style="color:green;font-size:large;font-weight:bold;">Spring @RestController Approach</p>
+<p>
+<b>First Name </b><input type="text" data-ng-model="filterByFirst"><br>
+<b>Last Name </b><input type="text" data-ng-model="filterByLast">
+</p>
+<p style="color:green;font-size:large;font-weight:bold;">Filtered Data</p>
+<div style="overflow-x:auto;">
+<table>
+<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Comments</th></tr>
+<tr data-ng-repeat="data in listCtlr | filter : {firstName: filterByFirst, lastName: filterByLast}">
+<td>{{ data.firstName }}</td><td>{{ data.lastName }}</td><td>{{ data.email }}</td><td>{{ data.comment }}</td>
+</tr>
+</table>
+</div>
+<div style="overflow-x:auto;">
+<p style="color:green;font-size:large;font-weight:bold;">Raw Data</p>
+<b>HTTP Status</b> {{listCtlrStatusCode}}, {{listCtlrStatus}} <b>REST API</b> {{listCtlrUri}}<br>{{listCtlr}}<br><br>
+</div>
+</div>
+</div>
+<div>
+<footer class="center">
+<nav role="navigation">
+<a href="/demoAdd.html">Add Data</a> | 
+<a href="/index.html">Index</a> 
+</nav>
+</footer>
+</div>
+</body>
+<script type="text/javascript" src="/script/angular/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="/script/angular/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="/script/angular/module/DemoListApp.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoListRepoCtrl.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoListCtrl.js"></script>
+<script type="text/javascript" src="/script/Common.js"></script>
+<script type="text/javascript" >injectCss("/css/Demo.css");</script>
+</html>

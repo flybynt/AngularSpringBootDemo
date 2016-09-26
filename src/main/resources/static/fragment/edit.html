@@ -1,0 +1,42 @@
+<span class="title">AngularJS MVC - Edit Data</span>
+<p>This portion of the AngularJS MVC demo allows a record selected from the list to be edited then saved to 
+the H2 database utilizing a JAVA Springboot REST API.</p>
+<p style="color:green;">Please enter requested data</p>
+<form name="demoForm" data-ng-submit="submit()" data-ng-controller="demoEditCtrl">
+<span class="row">
+<label style="width:100%;" for="firstName">First Name</label>
+<span class="row">
+<input type="text" id="firstName" name="firstName" data-ng-model="firstName" data-status-msg="100" required aria-required="true">
+<span class="inputError" data-ng-show="demoForm.firstName.$error.required"> Entry required</span>
+<span class="inputStatus" data-ng-show="demoForm.firstName.$error.showstatus"> Entry limit reached</span>
+</span>
+</span>
+<span class="row">
+<label style="width:100%;"for="lastName">Last Name</label>
+<span class="row">
+<input type="text" id="lastName" name="lastName" data-ng-model="lastName" data-status-msg="100" required aria-required="true">
+<span class="inputError" data-ng-show="demoForm.lastName.$error.required"> Entry required</span>
+<span class="inputStatus" data-ng-show="demoForm.lastName.$error.showstatus"> Entry limit reached</span>
+</span>
+</span>
+<span class="row">
+<label style="width:100%;" for="email">Email</label>
+<span class="row">
+<input type="email" id="email" name="email" data-ng-model="email" required aria-required="true">
+<span class="inputError" data-ng-show="demoForm.email.$error.required"> Entry required</span>
+<span class="inputError" data-ng-show="demoForm.email.$error.email"> Invalid email format</span>
+</span>
+</span>
+<div>&nbsp;</div>
+<span class="row">
+<label style="width:100%;" for="comment">Comment</label>
+<span class="row">
+<textarea id="comment" name="comment" data-ng-model="comment" rows="10" cols="40" wrap="soft" data-status-msg="200"></textarea>
+</span>
+<span class="inputStatus" data-ng-show="demoForm.comment.$error.showstatus"> Entry limit reached</span>
+</span>
+<div class="row">
+<button id="reset" type="reset" value="reset" data-ng-click="cancelUpdate()">Cancel</button>
+<button id="submit" name="submit" type="submit" value="submit" disabled>Update</button>
+</div>
+</form>

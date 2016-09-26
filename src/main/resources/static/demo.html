@@ -1,0 +1,36 @@
+	<!DOCTYPE html>
+<html class="TrebuchetMS">
+<head>
+<meta charset="ISO-8859-1">
+<title>API / MVC Demo</title>
+</head>
+<body data-ng-app="demoApp">
+<header>
+<nav>
+<span class="centeredText">
+<a href="index.html"> Index</a> | 
+<a href="#repo">@RepositoryRestResource</a> | 
+<a href="#list">@RestController</a> | 
+<a href="#add">Add</a>
+</span>
+</nav>
+</header>
+<p>The AngularJS MVC demo lists all of the data in the H2 database utilizing two different JAVA Springboot REST 
+API approaches. The data can be filtered by entering values in the appropriate fields for either the <b>@RepositoryRestResource</b> 
+or <b>@RestController</b> portions of the app which can be accessed above. Additionally, new data rows can be easily 
+entered to the database by entering data in the fields of the <B>Add</B> portion of the app which can also be 
+accessed above</p>
+<p>
+<div id="main" data-ng-controller="demoCtrl" data-ng-view></div>
+</body>
+<script type="text/javascript" src="/script/angular/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="/script/angular/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="/script/angular/module/DemoApp.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoCtrl.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoListCtrl.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoListRepoCtrl.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoAddCtrl.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoEditCtrl.js"></script>
+<script type="text/javascript" src="/script/Common.js"></script>
+<script type="text/javascript" >injectCss("/css/Demo.css");</script>
+</html>

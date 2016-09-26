@@ -1,0 +1,24 @@
+<span class="title">AngularJS MVC - List Data</span>
+<div id="demoListRepoCtrl" data-ng-controller="demoListRepoCtrl">
+<p>This portion of the AngularJS MVC demo lists all of the data in the H2 database utilizing the REST interface 
+to JAVA Springboot repository interface. The data can be filtered by entering values in the appropriate field for 
+the data set below. To edit data for a displayed record, click anywhere in that row.</p>
+<p style="color:green;font-size:large;font-weight:bold;">Spring @RepositoryRestResource Approach</p>
+<p>
+<b>First Name </b><input type="text" data-ng-model="filterByFirst"><br>
+<b>Last Name </b><input type="text" data-ng-model="filterByLast">
+</p>
+<p style="color:green;font-size:large;font-weight:bold;">Filtered Data</p>
+<div style="overflow-x:auto;">
+<table>
+<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Comments</th><th>REST API Data URL</th></tr>
+<tr data-ng-click="editRow(data._links.self.href)" data-ng-repeat="data in listRepo | filter : {firstName: filterByFirst , lastName: filterByLast}">
+<td>{{ data.firstName }}</td><td>{{ data.lastName }}</td><td>{{ data.email }}</td><td>{{ data.comment }}</td><td><a id="url" name="url" href='{{ data._links.self.href }}' > {{ data._links.self.href }}</a></td>
+</tr>
+</table>
+</div>
+<div style="overflow-x:auto;">
+<p style="color:green;font-size:large;font-weight:bold;">Raw Data</p>
+<b>HTTP Status</b> {{listRepoStatusCode}}, {{listRepoStatus}} <b>REST API</b> {{listRepoUri}}<br>{{listRepo}}<br><br>
+</div>
+</div>

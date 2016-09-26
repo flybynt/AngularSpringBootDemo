@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="TrebuchetMS">
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular MVC Demo</title>
+</head>
+<body  data-ng-app="demoAddApp" data-ng-controller="demoAddCtrl" >
+<header role="banner">
+<span class="title">AngularJS MVC - Add Data</span>
+</header>
+<p>This page of the AngularJS MVC demo allows new records to be added to the H2 database utilizing a JAVA Springboot REST API.</p>
+<p style="color:green;">Please enter requested data</p>
+<form name="demoForm" data-ng-submit="addRow()">
+<span class="row">
+<label style="width:100%;" for="firstName">First Name</label>
+<span class="row">
+<input type="text" id="firstName" name="firstName" data-ng-model="firstName" data-status-msg="100" required aria-required="true">
+<span class="inputError" data-ng-show="demoForm.firstName.$error.required"> Entry required</span>
+<span class="inputStatus" data-ng-show="demoForm.firstName.$error.showstatus"> Entry limit reached</span>
+</span>
+</span>
+<span class="row">
+<label style="width:100%;"for="lastName">Last Name</label>
+<span class="row">
+<input type="text" id="lastName" name="lastName" data-ng-model="lastName" data-status-msg="100" required aria-required="true">
+<span class="inputError" data-ng-show="demoForm.lastName.$error.required"> Entry required</span>
+<span class="inputStatus" data-ng-show="demoForm.lastName.$error.showstatus"> Entry limit reached</span>
+</span>
+</span>
+<span class="row">
+<label style="width:100%;" for="email">Email</label>
+<span class="row">
+<input type="email" id="email" name="email" data-ng-model="email" required aria-required="true">
+<span class="inputError" data-ng-show="demoForm.email.$error.required"> Entry required</span>
+<span class="inputError" data-ng-show="demoForm.email.$error.email"> Invalid email format</span>
+</span>
+</span>
+<div>&nbsp;</div>
+<span class="row">
+<label style="width:100%;" for="comment">Comment</label>
+<span class="row">
+<textarea id="comment" name="comment" data-ng-model="comment" rows="10" cols="40" wrap="soft" data-status-msg="200"></textarea>
+</span>
+<span class="inputStatus" data-ng-show="demoForm.comment.$error.showstatus"> Entry limit reached</span>
+</span>
+<div class="row">
+<button id="reset" type="reset" value="reset" data-ng-click="resetFields()">Clear Fields</button>
+<button id="submit" type="submit" value="submit">Add Entry</button>
+</div>
+</form>
+<div>
+<footer class="center">
+<nav role="navigation">
+<a href="/demoList.html">List Data</a> | 
+<a href="/index.html">Index</a>
+</nav>
+</footer>
+</div>
+</body>
+<script type="text/javascript" src="/script/angular/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="/script/angular/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="/script/angular/module/DemoAddApp.js"></script>
+<script type="text/javascript" src="/script/angular/controler/DemoAddCtrl.js"></script>
+<script type="text/javascript" src="/script/Common.js"></script>
+<script type="text/javascript" >injectCss("/css/Demo.css");</script>
+</html>

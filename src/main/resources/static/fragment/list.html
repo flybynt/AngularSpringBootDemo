@@ -1,0 +1,24 @@
+<span class="title">AngularJS MVC - List Data</span>
+<div id="demoListCtrl" data-ng-controller="demoListCtrl">
+<p>This portion of the AngularJS MVC demo lists all of the data in the H2 database utilizing an explicitly 
+defined REST controller interface to JAVA Springboot repository. The data can be filtered by entering values in 
+the appropriate field for the data set below.</p>
+<p style="color:green;font-size:large;font-weight:bold;">Spring @RestController Approach</p>
+<p>
+<b>First Name </b><input type="text" data-ng-model="filterByFirst"><br>
+<b>Last Name </b><input type="text" data-ng-model="filterByLast">
+</p>
+<p style="color:green;font-size:large;font-weight:bold;">Filtered Data</p>
+<div style="overflow-x:auto;">
+<table>
+<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Comments</th></tr>
+<tr data-ng-repeat="data in listCtlr | filter : {firstName: filterByFirst, lastName: filterByLast}">
+<td>{{ data.firstName }}</td><td>{{ data.lastName }}</td><td>{{ data.email }}</td><td>{{ data.comment }}</td>
+</tr>
+</table>
+</div>
+<div style="overflow-x:auto;">
+<p style="color:green;font-size:large;font-weight:bold;">Raw Data</p>
+<b>HTTP Status</b> {{listCtlrStatusCode}}, {{listCtlrStatus}} <b>REST API</b> {{listCtlrUri}}<br>{{listCtlr}}<br><br>
+</div>
+</div>
