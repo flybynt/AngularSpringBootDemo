@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.entity.DataEntity;
 import com.example.repository.DataRepository;
-import com.example.repository.resources.Search;
+import com.example.repository.entity.DataEntity;
+import com.example.repository.resource.Search;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

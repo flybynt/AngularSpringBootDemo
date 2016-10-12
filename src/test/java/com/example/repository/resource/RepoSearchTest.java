@@ -1,4 +1,6 @@
-package com.example.repository.resources;
+package com.example.repository.resource;
+
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -12,6 +14,9 @@ import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.client.match.MockRestRequestMatchers;
 import org.springframework.test.web.client.response.MockRestResponseCreators;
 import org.springframework.web.client.RestTemplate;
+
+import com.example.repository.resource.Search;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -59,11 +64,12 @@ public class RepoSearchTest  {
 	}
 
 	@Test
-	public void itShouldHaveContentWithExpectedResultForRepositorySearchUrl() {
+	public void itShouldHaveExpectedContentWithResultForRepositorySearchUrl() {
 		server.expect(MockRestRequestMatchers.requestTo(repoSearchURL))
-			.andRespond(MockRestResponseCreators.withSuccess());
+			.andRespond(MockRestResponseCreators.withSuccess(searchJSON, MediaType.parseMediaType("application/hal+json")));
 		
-		restTemplate.getForObject(repoSearchURL, Search.class);
-		server.verify();		
+		String response = restTemplate.getForObject(repoSearchURL, String.class);
+		server.verify();
+		assertEquals(response, searchJSON);
 	}
 }

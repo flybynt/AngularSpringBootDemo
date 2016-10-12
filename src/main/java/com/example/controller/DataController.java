@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entity.DataEntity;
 import com.example.repository.DataRepository;
+import com.example.repository.entity.DataEntity;
 
 // SPRING REST controller example
 //

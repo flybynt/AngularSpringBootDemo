@@ -1,12 +1,12 @@
-package com.example.repository.resources;
+package com.example.repository.resource;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FindByFirstName extends JsonResource {
+public class FindByLastName extends JsonResource {
 	private String href = null;
 	
-	public FindByFirstName() {}
+	public FindByLastName() {}
 
 	public String getHref() {
 		return href;
@@ -18,6 +18,6 @@ public class FindByFirstName extends JsonResource {
 	
 	@Override
 	public String toString() {
-		return String.format("findByFirstName [href=%s]", this.getHref());
+		return String.format("findByLastName [href=%s]", this.getHref());
 	}
 }

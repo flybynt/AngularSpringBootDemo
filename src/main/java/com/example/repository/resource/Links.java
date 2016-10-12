@@ -1,4 +1,4 @@
-package com.example.repository.resources;
+package com.example.repository.resource;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

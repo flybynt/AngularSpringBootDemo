@@ -1,4 +1,4 @@
-package com.example.entity;
+package com.example.repository.entity;
 
 import java.util.Arrays;
 import java.util.List;
